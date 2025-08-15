@@ -62,7 +62,7 @@ Uma aplicação web moderna de previsão do tempo com interface dinâmica que se
 
 5. **Execute a aplicação:**
    ```bash
-   python app.py
+   python run.py
    ```
 
 6. **Acesse:** `http://localhost:5000`
@@ -89,24 +89,26 @@ A aplicação possui fundos dinâmicos baseados nas condições climáticas:
 
 ```
 skycast-weather-app/
-├── services/           # Serviços Python
-│   ├── __init__.py    # Inicializador do módulo
-│   ├── location_service.py  # Serviço de geolocalização
-│   └── weather_service.py   # Integração com OpenWeatherMap API
-├── static/            # Arquivos estáticos
-│   ├── css/
-│   │   └── styles.css # Estilos principais
-│   ├── images/
-│   │   └── favicon.ico # Ícone da aplicação
-│   ├── js/
-│   │   └── main.js    # JavaScript principal
-├── templates/         # Templates Jinja2
-│   └── index.html     # Template principal
-├── .env               # Variáveis de ambiente
-├── app.py             # Aplicação Flask principal
-├── config.py          # Configurações da aplicação
-├── README.md          # README do projeto
-└── requirements.txt   # Dependências Python
+├── app/                 # Pacote principal da aplicação
+│   ├── __init__.py      # Inicializador da aplicação (Application Factory)
+│   ├── routes/          # Módulo de rotas
+│   │   ├── __init__.py
+│   │   ├── location.py  # Rotas de localização
+│   │   └── weather.py   # Rotas de clima
+│   ├── services/        # Serviços de negócio
+│   │   ├── __init__.py
+│   │   ├── location_service.py  # Serviço para obter localização por IP
+│   │   └── weather_service.py   # Serviço para obter dados meteorológicos
+│   ├── static/          # Arquivos estáticos (CSS, JS, imagens)
+│   └── templates/       # Templates HTML
+│       └── index.html
+├── .env.example         # Variáveis de ambiente
+├── .gitignore           # Arquivos e diretórios a serem ignorados pelo Git
+├── config.py            # Configurações da aplicação
+├── LICENSE              # Licença do projeto
+├── README.md
+├── requirements.txt     # Dependências Python
+└── run.py               # Ponto de entrada da aplicação
 ```
 
 ## 🌐 API Reference
